@@ -1,4 +1,12 @@
+<?php 
+	
+	require_once "clases/conexion/conexion.php";
 
+	$con = new conexion;
+
+	print_r($con);
+
+?>
 
 <!DOCTYPE html>
 <html>

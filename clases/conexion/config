@@ -1,8 +1,8 @@
 {
 	"conexion" : {
 		"server" : "localhost",
-		"user" : "root",
-		"password" : "",
+		"user" : "loginDB",
+		"password" : "Utem2022",
 		"database" : "dblogin",
 		"port" : "3306"
 	}

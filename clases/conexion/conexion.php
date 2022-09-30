@@ -70,6 +70,16 @@ class conexion {
 		}
 	}
 
+	//public  cualquier usuario que tenga acceso a la clase puede acceder y ejecutar
+	//privada solamente los elementos dentro de la clase puede ejecutar 
+
+	//protected solamente el padre de la clase pueden ejecutar
+
+
+	protected function encriptar($cad){
+		return md5($cad);
+	}
+
 
 }
 

@@ -52,5 +52,14 @@ class response{
 		return $this->response;
 	}
 
+	public function err_504(){
+		$this->response['status'] = "ERROR";
+		$this->response['result'] = array(
+			'errorId' => "504",
+			'msgError' => "El servidor no puede obtener una respuesta a tiempo, error de insersion de datos."
+		);
+		return $this->response;
+	}
+
 }
 ?>

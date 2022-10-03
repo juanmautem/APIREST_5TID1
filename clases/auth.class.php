@@ -51,7 +51,7 @@ class auth extends conexion{
 		if(isset($datos[0]['user']))
 			return $datos;
 		else
-			return false;
+			return 0 ;
 
 	}
 

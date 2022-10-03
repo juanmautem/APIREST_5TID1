@@ -16,33 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users`
+-- Table structure for table `usuarios_token`
 --
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `usuarios_token`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
-  `userId` int NOT NULL AUTO_INCREMENT,
-  `personId` int NOT NULL,
-  `user` varchar(20) NOT NULL,
-  `pass` varchar(40) NOT NULL,
-  `userType` varchar(20) NOT NULL,
-  `bActive` tinyint(1) NOT NULL DEFAULT '0',
-  `dtCreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`userId`),
-  UNIQUE KEY `usuario` (`user`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `usuarios_token` (
+  `tokenId` int NOT NULL AUTO_INCREMENT,
+  `userId` int NOT NULL,
+  `txtToken` varchar(50) NOT NULL,
+  `bEstado` varchar(10) NOT NULL,
+  `feDate` datetime DEFAULT NULL,
+  PRIMARY KEY (`tokenId`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `usuarios_token`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,1,'admin','0192023a7bbd73250516f069df18b500','Administrador',1,'2022-02-22 12:47:08'),(2,2,'sege','1c14dc03fc8dd53f7ed5df8dc63991df','Secretario General',1,'2022-02-22 12:47:08'),(3,3,'miac','de697fc11fe70771f92db92d004b8583','Miembro',1,'2022-02-22 12:47:08'),(4,4,'miin','de697fc11fe70771f92db92d004b8583','Miembro',0,'2022-02-22 12:47:08'),(5,5,'visit','a213033c0d9f7d83cd8f18d2f96be975','Visitante',1,'2022-02-22 12:47:08'),(6,6,'Ale','ale123','2',1,'2022-09-28 13:44:35'),(7,3,'EKISD','EXIS123','1',1,'2022-09-28 13:49:50'),(8,4,'XD','exit123','4',0,'2022-09-28 13:49:50');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+LOCK TABLES `usuarios_token` WRITE;
+/*!40000 ALTER TABLE `usuarios_token` DISABLE KEYS */;
+INSERT INTO `usuarios_token` VALUES (1,1,'3aa7eafaef2eb026eaeea1dd0769ab64','Activo','2022-10-03 17:14:00'),(2,1,'04a9cb8c8fb11e896cb8faa2553a068f','Activo','2022-10-03 17:17:00'),(3,1,'a771c695700d2b7a0d1d61db125b8a38','Activo','2022-10-03 17:23:00'),(4,1,'c9760d7d57f9e26d00052d8376da220a','Activo','2022-10-03 17:24:00'),(5,1,'14b3f8a9066dc0cbeb35d99362d32559','Activo','2022-10-03 17:25:00'),(6,1,'8af642f5767be5d9b8eaa3144951f7ea','Activo','2022-10-03 17:33:00'),(7,1,'70bcb9ce6f6e8b1588d6629cf27a2abe','Activo','2022-10-03 18:35:00');
+/*!40000 ALTER TABLE `usuarios_token` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

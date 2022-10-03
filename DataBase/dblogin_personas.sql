@@ -30,7 +30,7 @@ CREATE TABLE `personas` (
   `bActive` tinyint(1) NOT NULL COMMENT 'Activo o inactivo',
   `dtCreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de creación del registro',
   PRIMARY KEY (`personId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `personas` (
 
 LOCK TABLES `personas` WRITE;
 /*!40000 ALTER TABLE `personas` DISABLE KEYS */;
-INSERT INTO `personas` VALUES (1,'Admin','Admin','ADMI220222000',1,'2022-02-22 12:39:57'),(2,'Secretario','General','SEGE220222001',1,'2022-02-22 12:39:57'),(3,'Miembro','Activo','MIAC220222002',1,'2022-02-22 12:39:57'),(4,'Miembro','Inactivo','MIIA220222003',0,'2022-02-22 12:39:57'),(5,'Visitante','','',1,'2022-02-22 12:39:57');
+INSERT INTO `personas` VALUES (1,'Admin','Admin','ADMI220222000',1,'2022-02-22 12:39:57'),(2,'Secretario','General','SEGE220222001',1,'2022-02-22 12:39:57'),(3,'Miémbro','Activo','MIAC220222002',1,'2022-02-22 12:39:57'),(4,'Miémbro','Inactivo','MIIA220222003',0,'2022-02-22 12:39:57'),(5,'Visitante','','',1,'2022-02-22 12:39:57'),(6,'Alejandra','López','LELO123456789',1,'2022-09-28 13:42:35');
 /*!40000 ALTER TABLE `personas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-26 11:03:15
+-- Dump completed on 2022-10-03 11:41:10

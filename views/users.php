@@ -23,7 +23,7 @@
 	}
 </style>
 <body>
-	<strong><center><h1>Bienvenido <i>(poner nombre de usuario)</i><hr></h1></center></strong>
+	<strong><center><h1>Bienvenido <i>(poner tipo de usuario)</i><hr></h1></center></strong>
 	<div id="buttons">
 		<button type="button" class="btn btn-dark" onclick="msg();">+ Agregar Usuario +</button>
 	</div>
@@ -33,7 +33,7 @@
 </body>
 <script type="text/javascript">
 	function msg(){
-		alert('Abrir modal o generar otra interfaz para crear un nuevo usuario, por medio de una APIREST')
+		alert('Abrir modal o generar otra interfaz para crear un nuevo usuario, por medio de una APIREST');
 	}
 </script>
 </html>

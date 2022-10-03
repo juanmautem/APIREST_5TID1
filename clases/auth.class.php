@@ -17,11 +17,11 @@ class auth extends conexion{
 			$pass = $data['psw'];
 			$pass = parent::encriptar($pass);
 			$userData = $this->getUserData($user);
-			if($data){
-				if($data['psw'] ==  $pass){
-					if($data['estado'] == 1){
+			if($userData[0]){
+				if($userData[0]['pass'] ==  $pass){
+					if($userData[0]['Estado'] == 1){
 						//generar token.
-						$userId = $data['userId'];
+						$userId = $userData[0]['userId'];
 						$resp = $this->newToken($userId);
 						if($resp){
 							$result = $_response->response;
@@ -38,13 +38,15 @@ class auth extends conexion{
 					return $_response->err_401();
 				}
 			}
+
+			/*Actividad:CREAR VARIABLES DE SESION*/
 			return $_response->resp200();
 		}
 
 	}
 
 	private function getUserData($user){
-		$queryString = "SELECT * FROM allusers WHERE user = $user";
+		$queryString = "SELECT * FROM allusers WHERE user = '$user'";
 		$datos = parent::getData($queryString);
 		if(isset($datos[0]['user']))
 			return $datos;
@@ -58,9 +60,9 @@ class auth extends conexion{
 		$token = bin2hex(openssl_random_pseudo_bytes(16,$val));
 		$date = date("Y-m-d H:i");
 		$estado = "Activo";
-		$queryString = "INSERT INTO usuarios_token(userId,txtToken,bEstado,fDate)VALUES($userId,$token,$estado,$date);";
+		$queryString = "INSERT INTO usuarios_token(userId,txtToken,bEstado,feDate)VALUES($userId,'$token','$estado','$date');";
 		$validate = parent::postData($queryString);
-		if($validate)
+		if($validate == 1)
 			return $token;
 		else
 			return 0;

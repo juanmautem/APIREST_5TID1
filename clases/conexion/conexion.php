@@ -44,7 +44,6 @@ class conexion {
 
 	// OBTENCIÓN DE DATOS
 	public function getData($queryString){
-
 		$result = $this->conexion->query($queryString);
 		$resultData = array();
 		foreach($result as $row){

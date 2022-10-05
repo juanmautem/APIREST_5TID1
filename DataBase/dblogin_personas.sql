@@ -30,7 +30,7 @@ CREATE TABLE `personas` (
   `bActive` tinyint(1) NOT NULL COMMENT 'Activo o inactivo',
   `dtCreatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de creación del registro',
   PRIMARY KEY (`personId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) AUTO_INCREMENT=7;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

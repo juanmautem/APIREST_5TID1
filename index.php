@@ -50,7 +50,8 @@
 		<center><h1>Prueba 1: API REST <hr></h1></center>
 	</div>
 	<div id="login">
-		<form action="/5TID1/APIREST/auth.php" method="POST">
+        
+		<form action="/APIREST_5TID1/auth.php" method="POST">  // 5TID1/APIREST -> APIREST_5TID1
 			<div id="params">
 				<div class="input-group">
 				    <span class="input-group-text">Usuario</span>

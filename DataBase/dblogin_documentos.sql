@@ -31,7 +31,7 @@ CREATE TABLE `documentos` (
   `bActive` tinyint(1) DEFAULT '1',
   `fCreatedAt` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`documentID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

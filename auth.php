@@ -15,10 +15,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $status = json_encode($dataArray);
     if($dataArray['status']== "ok"){
         echo "<script>confirm('$status');</script>";
-        header("Location:/5TID1/APIREST/views/users.php");
+        header("Location:/APIREST_5TID1/views/users.php"); // 5TID1/APIREST -> APIREST_5TID1
     }else{
         echo "<script>alert('$dataArray');</script>";
-        header("Location:/5TID1/APIREST/index.php");
+        header("Location:/APIREST_5TID1/index.php"); // 5TID1/APIREST -> APIREST_5TID1
 
     }
 }else{

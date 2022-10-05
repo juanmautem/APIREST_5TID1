@@ -1,3 +1,7 @@
+<?php  
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +27,7 @@
 	}
 </style>
 <body>
-	<strong><center><h1>Bienvenido <i>(poner tipo de usuario)</i><hr></h1></center></strong>
+	<strong><center><h1>Bienvenido <i> <?php echo $_SESSION['Nombre']; ?></i><hr></h1></center></strong>
 	<div id="buttons">
 		<button type="button" class="btn btn-dark" onclick="msg();">+ Agregar Usuario +</button>
 	</div>

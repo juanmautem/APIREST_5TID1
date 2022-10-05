@@ -40,6 +40,10 @@ class auth extends conexion{
 			}
 
 			/*Actividad:CREAR VARIABLES DE SESION*/
+			//inicializar sesion
+			$datosUsuario = getDataUser($userId);
+			session_start();
+			$_SESSION['Nombre'] = $datosUsuario['Name'] . " " . $datosUsuario['Lastname'];
 			return $_response->resp200();
 		}
 
@@ -66,6 +70,11 @@ class auth extends conexion{
 			return $token;
 		else
 			return 0;
+	}
+
+	private function getDataUser($userId){
+		//traerme los datos del usuario de la vista *userdata* donde userId(tabla) = $userId;
+		//retornar los datos del usuario
 	}
 
 }

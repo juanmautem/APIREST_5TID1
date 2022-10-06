@@ -24,12 +24,17 @@ class auth extends conexion{
 						$userId = $userData[0]['userId'];
 						$resp = $this->newToken($userId);
 						if($resp){
+							$dataUser = $this->getDataUser($userId);
 							$result = $_response->response;
 							$result["result"] = 
 								array(
 									"token" => $resp
 								);
-							return $result;
+							$info = array(
+								"response" => $result,
+								"user" => $dataUser
+							);
+							return $info;
 						}else{
 							return $_response->err_504();
 						}
@@ -41,9 +46,8 @@ class auth extends conexion{
 
 			/*Actividad:CREAR VARIABLES DE SESION*/
 			//inicializar sesion
-			$datosUsuario = getDataUser($userId);
-			session_start();
-			$_SESSION['Nombre'] = $datosUsuario['Name'] . " " . $datosUsuario['Lastname'];
+			//$datosUsuario = getDataUser($userId);
+
 			return $_response->resp200();
 		}
 
@@ -73,9 +77,15 @@ class auth extends conexion{
 	}
 
 	private function getDataUser($userId){
-		//traerme los datos del usuario de la vista *userdata* donde userId(tabla) = $userId;
-		//retornar los datos del usuario
+		$queryString = "SELECT * FROM userdata WHERE userId = '$userId'";
+		$datos = parent::getData($queryString);
+		if(isset($datos[0]['personId']))
+			return $datos[0];
+		else
+			return 0 ;
+
 	}
+	
 
 }
 

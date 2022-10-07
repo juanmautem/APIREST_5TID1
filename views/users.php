@@ -28,11 +28,18 @@
 </style>
 <body>
 	<strong><center><h1>Bienvenido <?php echo $_SESSION['NombreCompleto']; ?> <i> </i><hr></h1></center></strong>
+	<form action ="/APIREST_5TID1/APIREST/users.php" class="input-group p-2" method = "GET">	  
+	  <input type="text" class="form-control" placeholder="Nombre" name="nw_userName">
+	  <button type="submit" class="btn-info">Buscar</button>
+	</form>
 	<div id="buttons">
 		<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#AddUser">+ Agregar Usuario +</button>
 	</div>
 	<div id="tblUsuarios">
 		<h3>Generar la tabla de usuarios y que muestre la información de todos los usuarios, utilizando APIREST para extraer la información de los usuarios</h3>
+		<?php 
+			echo "AQUI SE GENERA LA TABLA";
+		?>
 	</div>
 </body>
 

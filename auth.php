@@ -25,7 +25,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $_SESSION['user'] = $data['user'];
         $_SESSION['userType'] = $data['userType'];
         $_SESSION['userActive'] = $data['userActive'];
-        echo "<script>confirm('$status');</script>";
         header("Location:/APIREST_5TID1/views/users.php"); // 5TID1/APIREST -> APIREST_5TID1
     }else{
         echo "<script>alert('$response');</script>";

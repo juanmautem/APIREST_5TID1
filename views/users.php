@@ -84,7 +84,7 @@
       	  <button type="submit" class="btn btn-success" name="btnOpt" value="0">Guardar</button>
       	  
       	</form>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="clean();">Cancelar</button>
+        <button type="button" class="btn btn-danger"   onclick="clean();">Cancelar</button>
       </div>
 
     </div>
@@ -92,9 +92,10 @@
 </div>
 <script type="text/javascript">
 	function clean(){
+		$("#AddUser").modal("hide");
 		document.getElementByName('nw_userName').value = " ";
 		document.getElementByName('nw_apellidos').value = " ";
-		document.getElementByName('nw_rfc');.value = " ";
+		document.getElementByName('nw_rfc').value = " ";
 		document.getElementByName('nw_nickName').value = " ";
 		document.getElementByName('userType').value = " ";
 		alert("ALL CLEAN");

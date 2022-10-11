@@ -1,5 +1,11 @@
 <?php  
 	session_start();
+	require_once '../clases/users.class.php';
+	$_user = new users;
+
+	$users = $_user->listaUsuarios();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +19,9 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	<!-- JavaScript Bundle with Popper -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+
+
 </head>
 <style type="text/css">
 	#params{
@@ -28,7 +37,7 @@
 </style>
 <body>
 	<strong><center><h1>Bienvenido <?php echo $_SESSION['NombreCompleto']; ?> <i> </i><hr></h1></center></strong>
-	<form action ="/APIREST_5TID1/APIREST/users.php" class="input-group p-2" method = "GET">	  
+	<form action ="/APIREST_5TID1/users.php" class="input-group p-2" method = "GET">	  
 	  <input type="text" class="form-control" placeholder="Nombre" name="nw_userName">
 	  <button type="submit" class="btn-info">Buscar</button>
 	</form>
@@ -37,8 +46,14 @@
 	</div>
 	<div id="tblUsuarios">
 		<h3>Generar la tabla de usuarios y que muestre la información de todos los usuarios, utilizando APIREST para extraer la información de los usuarios</h3>
+
 		<?php 
 			echo "AQUI SE GENERA LA TABLA";
+
+			foreach ($users as $usr ) {
+				echo "<br>";
+				print_r($usr);
+			}
 		?>
 	</div>
 </body>
@@ -60,20 +75,20 @@
         <form action="/APIREST_5TID1/APIREST/users.php" method = "POST">
           <div class="input-group p-2">
             <span class="input-group-text">Nombre</span>
-            <input type="text" class="form-control" placeholder="Nombre" name="nw_userName">
+            <input type="text" class="form-control" placeholder="Nombre" name="nw_userName" required>
           </div>
 
           <div class="input-group p-2">
             <span class="input-group-text">Apellidos</span>
-            <input type="text" class="form-control" placeholder="Apellidos" name="nw_apellidos">
+            <input type="text" class="form-control" placeholder="Apellidos" name="nw_apellidos" required>
           </div>
           <div class="input-group p-2">
             <span class="input-group-text">RFC</span>
-            <input type="text" class="form-control" placeholder="rfc" name="nw_rfc">
+            <input type="text" class="form-control" placeholder="rfc" name="nw_rfc" required>
           </div>
           <div class="input-group p-2">
             <span class="input-group-text">NickName</span>
-            <input type="text" class="form-control" placeholder="Nombre de Usuario" name="nw_nickName">
+            <input type="text" class="form-control" placeholder="Nombre de Usuario" name="nw_nickName" required>
           </div>
           <label for="userType p-2">Tipo de usuario:</label>
           <select class="form-select mb-3" name="userType">
@@ -88,7 +103,7 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-      	  <button type="submit" class="btn btn-success" name="btnOpt" value="0">Guardar</button>
+      	  <button type="submit" class="btn btn-success">Guardar</button>
       	  
       	</form>
         <button type="button" class="btn btn-danger"   onclick="clean();">Cancelar</button>

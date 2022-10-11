@@ -23,6 +23,22 @@ class users extends conexion{
 		return ($datos);
 
 	}
+
+	public function post($datos){
+		$datos = $datos;
+		$name = $datos['nw_userName'];
+		$lname = $datos['nw_apellidos'];
+		$rfc = $datos['nw_rfc'];
+		$nick = $datos['nw_nickName'];
+		$userType = $datos['userType'];
+
+		$query = "INSERT INTO personas(personName, personLastName, personRFC, bActive) VALUES ('$name','$lname','$rfc',1)";
+		$id = parent::postDataId($query);
+		$query2 = "INSERT INTO users(personId, user, pass, userType) VALUES ('$id','$nick',md5('$nick'),'$userType')";
+		$result = parent::postData($query2);
+		return $result;
+	}
+
 	public function buscarUsuarioNombre($userName){ 
 		$query = "SELECT * FROM userdata where Name =  '$userName'"; 
 		$datos = parent::getData($query);

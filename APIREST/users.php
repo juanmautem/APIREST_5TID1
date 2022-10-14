@@ -9,7 +9,6 @@ $_respuestas = new response;
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     $datos = $_POST;
     $dataArray = $_user->post($datos);
-    echo $dataArray;
     if($dataArray > 0){
         header("Location:/APIREST_5TID1/views/users.php"); 
     }
@@ -18,7 +17,21 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     }
 
 }elseif($_SERVER['REQUEST_METHOD'] == "GET"){
-    print_r($_GET);
+    if(isset($_GET['name'])){
+        $name = $_GET['name'];
+        $user = $_user->buscarUsuarioNombre($name);
+        if($user  != 0)
+            print_r(json_encode($user));
+        else
+            echo 0;
+    }else{
+        $users = $_user->listaUsuarios();
+        if($users != 0)
+            print_r(json_encode($users));
+        else
+            echo 0;
+    }
+
 }else{
     echo "Método no permitido";
 

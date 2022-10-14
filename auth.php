@@ -9,14 +9,14 @@ $_respuestas = new response;
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     $postData = $_POST;
-
     $dataArray = $_auth->logIn(json_encode($postData));
-    
     $response = $dataArray['response'];
     $data = $dataArray['user'];
-    if($response['status']== "ok"){
+    $status = $response['status'];
+
+    if($status = "ok"){
         session_start();
-        $_SESSION['NombreCompleto'] = $data['Name'] . " " .$data['LastName'];
+        $_SESSION['NombreCompleto'] = $data['Name'] . " " .$data['Lastname'];
         $_SESSION['Nombre'] = $data['Name'];
         $_SESSION['userId'] = $data['userId'];
         $_SESSION['personId'] = $data['personId'];
@@ -25,10 +25,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $_SESSION['user'] = $data['user'];
         $_SESSION['userType'] = $data['userType'];
         $_SESSION['userActive'] = $data['userActive'];
-        header("Location:/APIREST_5TID1/views/users.php"); // 5TID1/APIREST -> APIREST_5TID1
+        echo true;
+        //header("Location:/APIREST_5TID1/views/users.php"); // 5TID1/APIREST -> APIREST_5TID1
     }else{
-        echo "<script>alert('$response');</script>";
-        header("Location:/APIREST_5TID1/index.php"); // 5TID1/APIREST -> APIREST_5TID1
+        echo false;
+        //echo "<script>alert('$response');</script>";
+        //header("Location:/APIREST_5TID1/index.php"); // 5TID1/APIREST -> APIREST_5TID1
 
     }
 }else{

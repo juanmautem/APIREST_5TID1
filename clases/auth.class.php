@@ -20,7 +20,6 @@ class auth extends conexion{
 			if($userData[0]){
 				if($userData[0]['pass'] ==  $pass){
 					if($userData[0]['Estado'] == 1){
-						//generar token.
 						$userId = $userData[0]['userId'];
 						$resp = $this->newToken($userId);
 						if($resp){
@@ -44,9 +43,6 @@ class auth extends conexion{
 				}
 			}
 
-			/*Actividad:CREAR VARIABLES DE SESION*/
-			//inicializar sesion
-			//$datosUsuario = getDataUser($userId);
 
 			return $_response->resp200();
 		}

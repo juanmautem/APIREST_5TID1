@@ -20,7 +20,11 @@
 	<!-- JavaScript Bundle with Popper -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
-
+	<!-- Llamado a libreria jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!-- Llamado a libreria ajax -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="/APIREST_5TID1/assets/js/apiRest.js"></script>
 
 </head>
 <style type="text/css">
@@ -37,24 +41,35 @@
 </style>
 <body>
 	<strong><center><h1>Bienvenido <?php echo $_SESSION['NombreCompleto']; ?> <i> </i><hr></h1></center></strong>
-	<form action ="/APIREST_5TID1/users.php" class="input-group p-2" method = "GET">	  
-	  <input type="text" class="form-control" placeholder="Nombre" name="nw_userName">
-	  <button type="submit" class="btn-info">Buscar</button>
-	</form>
+		  
+	 
+	  
+
+	  <div class="input-group container-fluid">
+	       <input type="text" class="form-control" placeholder="Nombre" name="fnd_userName">
+	      <span class="input-group-text"><button type="submit" class="btn btn-default" onclick="getUser()">Buscar</button></span>
+	    </div>
 	<div id="buttons">
 		<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#AddUser">+ Agregar Usuario +</button>
 	</div>
-	<div id="tblUsuarios">
+	<div id="tblUsuarios" class="container-fluid">
 		<h3>Generar la tabla de usuarios y que muestre la información de todos los usuarios, utilizando APIREST para extraer la información de los usuarios</h3>
-
-		<?php 
-			echo "AQUI SE GENERA LA TABLA";
-
-			foreach ($users as $usr ) {
-				echo "<br>";
-				print_r($usr);
-			}
-		?>
+		<center>
+			<table class="table table-bordered">
+			    <thead>
+			      <tr>
+			        <th>IDUser</th>
+			        <th>Nombre completo</th>
+			        <th>RFC</th>
+			        <th>NickName</th>
+			        <th>Activo</th>
+			      </tr>
+			    </thead>
+			    <tbody id="tblUsers">
+			      
+			    </tbody>
+			  </table>
+		</center>
 	</div>
 </body>
 
@@ -113,6 +128,8 @@
   </div>
 </div>
 <script type="text/javascript">
+	getUsers();
+
 	function clean(){
 		$("#AddUser").modal("hide");
 		document.getElementByName('nw_userName').value = " ";

@@ -66,6 +66,13 @@
 			      </tr>
 			    </thead>
 			    <tbody id="tblUsers">
+			    	<tr>
+			    		<td>1</td>
+			    		<td>Pedro</td>
+			    		<td>ABCD123456HYJ</td>
+			    		<td>Pedro</td>
+			    		<td>1</td>
+			    	</tr>
 			      
 			    </tbody>
 			  </table>
@@ -130,14 +137,6 @@
 <script type="text/javascript">
 	getUsers();
 
-	function clean(){
-		$("#AddUser").modal("hide");
-		document.getElementByName('nw_userName').value = " ";
-		document.getElementByName('nw_apellidos').value = " ";
-		document.getElementByName('nw_rfc').value = " ";
-		document.getElementByName('nw_nickName').value = " ";
-		document.getElementByName('userType').value = " ";
-		alert("ALL CLEAN");
-	}
+	
 </script>
 </html>

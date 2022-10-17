@@ -3,7 +3,7 @@
 		"server" : "localhost",
 		"user" : "loginDB",
 		"password" : "Utem2022",
-		"database" : "dblogin",
+		"database" : "db_login",
 		"port" : "3306"
 	}
 	

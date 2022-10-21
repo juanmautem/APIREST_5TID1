@@ -136,7 +136,11 @@
 </div>
 <script type="text/javascript">
 	getUsers();
-
-	
-</script>
+	changeColor();
+	//setInterval(changeColor,10);
+	function changeColor(){
+		var rand = Math.round(Math.random()*1000000);	
+		document.body.style.background = '#'+ rand;
+	}
+	</script>
 </html>

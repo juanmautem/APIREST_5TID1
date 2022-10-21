@@ -27,11 +27,11 @@ function login(){
 	);
 }
 
-function getUsers(){
+function getUsers() {
 	let items = "";
 	let users = document.getElementById('tblUsers');
 	$.get("/APIREST_5TID1/APIREST/users.php", 
-		function(data, status){
+		function (data, status) {
 			let datos = JSON.parse(data);
 		   	for(var dato of datos){ // i= 0; i<datos.length ; i++;   //datos[i].nombre;
 		   		//items = items + algo
@@ -51,8 +51,6 @@ function getUsers(){
 	   			items += "</td>";
 		   		items += "</tr>";
 		   		users.innerHTML = items;
-		   		//alert(dato.userActive);
-
 		   }
 	});
 }

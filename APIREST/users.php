@@ -21,13 +21,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $name = $_GET['name'];
         $user = $_user->buscarUsuarioNombre($name);
         if($user  != 0)
-            print_r(json_encode($user));
+            echo json_encode($user);
         else
             echo 0;
     }else{
         $users = $_user->listaUsuarios();
+        
         if($users != 0)
-            print_r(json_encode($users));
+           echo json_encode($users);
         else
             echo 0;
     }

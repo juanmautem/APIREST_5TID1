@@ -3,7 +3,7 @@ function login(){
 	let pw;
 	usr = $("#user").val();
 	pw = $("#psw").val();
-	$.post(
+	/*$.post(
 		//url
 		"/APIREST_5TID1/auth.php",
 		//data
@@ -24,13 +24,27 @@ function login(){
 		      
 
 		}
-	);
+	);*/
+	let dataString = new Array();
+	dataString.user = usr;
+	dataString.psw = pw;
+	$.ajax
+		({
+			type: "POST",
+			url: "/APIREST_5TID1/auth.php",
+			data: dataString,
+			success: function () {
+				alert("ACCESO CORRECTO!!");
+			}
+		});
+
+
 }
 
 function getUsers() {
 	let items = "";
 	let users = document.getElementById('tblUsers');
-	$.get("/APIREST_5TID1/APIREST/users.php", 
+	/*$.get("/APIREST_5TID1/APIREST/users.php", 
 		function (data, status) {
 			let datos = JSON.parse(data);
 		   	for(var dato of datos){ // i= 0; i<datos.length ; i++;   //datos[i].nombre;
@@ -52,6 +66,15 @@ function getUsers() {
 		   		items += "</tr>";
 		   		users.innerHTML = items;
 		   }
+	});*/
+	$.ajax({
+		url: "/APIREST_5TID1/APIREST/users.php",
+		type: 'GET',
+		dataType: 'json', // added data type
+		success: function (res) {
+			console.log(res);
+			alert(res);
+		}
 	});
 }
 

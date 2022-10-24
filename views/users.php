@@ -39,7 +39,7 @@
 		margin-right: 5%;
 	}
 </style>
-<body>
+<body id ="background">
 	<strong><center><h1>Bienvenido <?php echo $_SESSION['NombreCompleto']; ?> <i> </i><hr></h1></center></strong>
 		  
 	 
@@ -52,10 +52,10 @@
 	<div id="buttons">
 		<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#AddUser">+ Agregar Usuario +</button>
 	</div>
-	<div id="tblUsuarios" class="container-fluid">
+	<div id="tblUsuario" class="container-fluid">
 		<h3>Generar la tabla de usuarios y que muestre la información de todos los usuarios, utilizando APIREST para extraer la información de los usuarios</h3>
 		<center>
-			<table class="table table-bordered">
+			<table class="table table-bordered" id="tblUsuarios">
 			    <thead>
 			      <tr>
 			        <th>IDUser</th>
@@ -128,7 +128,7 @@
       	  <button type="submit" class="btn btn-success">Guardar</button>
       	  
       	</form>
-        <button type="button" class="btn btn-danger"   onclick="clean();">Cancelar</button>
+        <button type="button" class="btn btn-danger">Cancelar</button>
       </div>
 
     </div>
@@ -136,11 +136,19 @@
 </div>
 <script type="text/javascript">
 	getUsers();
-	changeColor();
+	//changeColor();
 	//setInterval(changeColor,10);
 	function changeColor(){
-		var rand = Math.round(Math.random()*1000000);	
-		document.body.style.background = '#'+ rand;
+		let red = Math.round(Math.random()*256);	
+		let green = Math.round(Math.random()*256);	
+		let blue = Math.round(Math.random()*256);	
+		let color = "rgb(" + red + ","  + green + "," + blue + ")";
+		let rgbLetters = `rgb(${red},${green},${blue})`;
+
+		console.log(rgbLetters); 
+
+		document.getElementById("background").style.backgroundColor = rgbLetters;
 	}
+
 	</script>
 </html>
